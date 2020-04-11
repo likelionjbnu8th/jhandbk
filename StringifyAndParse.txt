@@ -1,0 +1,13 @@
+> var pi = 3.14;            
+< undefined
+> var string = "string";    
+< undefined
+> JSON.stringify(pi);       
+< "3.14"                    
+> JSON.parse("3.14");       
+< 3.14
+> JSON.parse("\"string\""); 
+< "string"
+
+JSON 문자열을 JS 객체로 -> JSON.stringify
+JS 객체를 JSON 문자열로 -> JSON.parse 
