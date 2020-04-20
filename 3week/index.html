@@ -8,8 +8,8 @@
 </head>
 <body>
     <div id=root>
-        <h1>좋아요</h1>
-        <button>Like</button>
+        <h1 v-if='liked'>좋아요</h1>
+        <button v-else v-on:click="onClickButton">Like</button>
     </div>
     
 </body>
@@ -21,7 +21,7 @@
     },
     methods:{
         onClickButton(){
-            this.liked=true
+            this.liked=true;
         }
     }
     });
