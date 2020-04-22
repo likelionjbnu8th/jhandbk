@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+    <div id='root'>
+        <div>{{word}}</div>
+        <form v-on:submit="onSubmitForm">
+            <input type='text' v-model='value'>
+            <butoon type='submit'>입력!</butoon>
+        </form>
+        <div>
+            <h3>{{result}}</h3>
+        </div>
+    </div>
+    
+    <script>
+        const app=new Vue({
+            el:'#root',
+            data:{
+                word:'박종현',
+                result:'',
+                value:'',
+            },
+            methods:{
+                onSubmitForm(e){
+                    e.preventDefault();
+                    if(this.word[this.word.length-1]===this.value[0]){
+                        this.result ='딩동댕';
+                        this.word = this.value;
+                        this.value='';
+                    }else{
+                        this.result ='땡!'
+                        this.value='';
+                    }
+                }
+            },
+        });
+
+    </script>
+</body>
+</html>
