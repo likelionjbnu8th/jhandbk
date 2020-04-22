@@ -5,25 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
 </head>
 <body>
-    <div id=root>
-        <h1 v-if='liked'>좋아요</h1>
-        <button v-else v-on:click="onClickButton">Like</button>
+    <div id='root'>
+        <div>{{first}} 곱하기 {{second}}는?</div>
+        <form v-on:submit="onSubmitForm">
+            <!-- form 에 취해지는 것은 대부분 submit으로 처리된다-->
+            <input type='number' v-model='value'>
+            <button type='submit'>입력</button>
+        </form>
+        <div id='result'>{{result}}</div>
     </div>
-    
-</body>
+
 <script>
-    const app = new Vue({
+    const app=new Vue({
         el: '#root',
         data:{
-        liked: false,
-    },
-    methods:{
-        onClickButton(){
-            this.liked=true;
+            first: Math.ceil(Math.random()*9),
+            second:Math.ceil(Math.random()*9),
+            value:'',
+            result:'',
+        },
+        methods:{
+            onSubmitForm(e){
+                e.preventDefault(); // 새로고침 방지 기능
+                if(this.first*this.second === parseInt(this.value)){// 문자형이 아닌 숫자형으로 받아야 하기 때문에
+                    this.result='정답';
+                }else{
+                    this.result='땡';
+                }
+                }
+            }
         }
-    }
-    });
+    )
 </script>
+</body>
 </html>
