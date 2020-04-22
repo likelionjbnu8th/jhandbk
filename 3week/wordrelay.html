@@ -25,7 +25,7 @@
             data:{
                 word:'박종현',
                 result:'',
-                value:'',
+                value:'',// data 설정해주고 
             },
             methods:{
                 onSubmitForm(e){
@@ -33,7 +33,7 @@
                     if(this.word[this.word.length-1]===this.value[0]){
                         this.result ='딩동댕';
                         this.word = this.value;
-                        this.value='';
+                        this.value='';// value는 비워주는 상황, input 을 계속해서 받아야 하니까
                     }else{
                         this.result ='땡!'
                         this.value='';
