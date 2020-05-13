@@ -1,0 +1,21 @@
+> req.readyState;  
+< 4
+> var req2 = new XMLHttpRequest( );
+< undefined
+> req2.readyState; 
+< 0
+> req2.open("GET","./data.txt");
+< undefined
+> req2.readyState; 
+< 1
+> req2.send( );
+< undeifined
+> req2.readyState;
+< 4
+
+
+0: open( ) 메서드가 호출되기 전
+1: open( ) 메서드가 호출된 후
+2: 보낸 요청에 대해 응답에 헤더가 수신된 후
+3: 응답 메시지에 body 부분이 수신 중일 때
+4: 모든 응답이 완료되었을 때
