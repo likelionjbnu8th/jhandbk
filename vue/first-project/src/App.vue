@@ -1,23 +1,17 @@
 <template>
   <div>
-    <p>오늘의 날씨는 {{ weather }}입니다</p>
-    <hr />
-    <button @click="changeWeather">날씨 업데이트</button>
+    <!-- 꼭 / 로 닫아야한다 -->
+    <cmp-weather />
+    <cmp-weather />
   </div>
 </template>
 
 <script>
+// .vue 파일 내에서 확장자 않써도 인식함
+import Weather from "./components/Weather";
 export default {
-  data() {
-    return {
-      weather: "맑음"
-    };
-  },
-
-  methods: {
-    changeWeather() {
-      this.weather = "흐림";
-    }
+  components: {
+    "cmp-weather": Weather
   }
 };
 </script>
